@@ -14,12 +14,12 @@ import { TransicaoDeFiltro } from '@/components/common/TransicaoDeFiltro';
 const Cabecalho: React.FC = () => (
   <header className="mb-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
     <div className="lg:col-span-8 space-y-3">
-      <h1 className="text-[clamp(2rem,6vw,3.5rem)] tracking-wider leading-tight">
-        <span style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-white">
+      <h1 className="text-[clamp(2.5rem,5.8vw,4.5rem)] tracking-wider leading-tight">
+        <span style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-white uppercase">
           Descobrir o Acervo
         </span>
       </h1>
-      <p className="text-slate-300/80 text-xs sm:text-sm font-body leading-relaxed max-w-xl">
+      <p className="text-slate-300 font-body text-sm sm:text-base leading-relaxed max-w-2xl">
         O flat track em 2047, lido em duas trilhas: Velocidade para tática, equipamento e
         arbitragem assistida, Expressão para transmissão, som e cultura escrita da pista.
       </p>
@@ -27,15 +27,15 @@ const Cabecalho: React.FC = () => (
 
     {/* Showcase Floating Image */}
     <div className="lg:col-span-4 flex justify-center lg:justify-end">
-      <div className="relative w-40 h-40 sm:w-52 sm:h-52 animate-[pulse_4s_ease-in-out_infinite]">
-        <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none" />
+      <div className="relative w-44 h-44 sm:w-60 sm:h-60 animate-[pulse_4s_ease-in-out_infinite]">
+        <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
         <Image
           src="/imagens/capacete.webp"
           alt="Capacete Derby Synthetica"
-          width={220}
-          height={220}
+          width={280}
+          height={280}
           priority
-          className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_30px_rgba(0,240,255,0.4)]"
+          className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_35px_rgba(0,240,255,0.45)]"
         />
       </div>
     </div>
@@ -146,8 +146,8 @@ const Acervo: React.FC = () => {
   const listed = isUnfiltered ? contents.filter((c) => c.slug !== featured?.slug) : contents;
 
   return (
-    <div className="px-6 sm:px-8 pt-28 pb-24">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <div className="px-6 sm:px-12 pt-28 pb-24 w-[88vw] max-w-[1650px] mx-auto text-white">
+      <div className="w-full space-y-10">
         <Cabecalho />
 
         <SeletorTrilha trilha={activeTrilha} onTrilhaChange={selectTrilha} />
@@ -155,19 +155,19 @@ const Acervo: React.FC = () => {
         <PainelTrilha trilha={trilhaExibida}>
           <div className="pt-4 space-y-4 mb-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="relative w-full sm:w-80">
+              <div className="relative w-full sm:w-96">
                 <input
                   type="text"
                   placeholder="Buscar ensaio, manobra, regra..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-lg bg-[#0D0F26] border border-white/15 focus:border-cyan-400 text-xs font-mono text-white placeholder:text-white/40 focus:outline-none transition-colors"
+                  className="w-full px-5 py-3 rounded-xl bg-white/[0.04] border border-white/15 focus:border-cyan-400 text-xs font-mono text-white placeholder:text-white/40 focus:outline-none transition-colors"
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={limparBusca}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono text-white/50 hover:text-cyan-400"
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-mono text-white/50 hover:text-cyan-400"
                     aria-label="Limpar busca"
                   >
                     ×
@@ -236,7 +236,7 @@ const Acervo: React.FC = () => {
                 {isUnfiltered && featured && (
                   <Link
                     href={`/conteudo/${featured.slug}`}
-                    className="glossy-card block p-6 sm:p-10 group"
+                    className="glossy-card block p-6 sm:p-10 group rounded-3xl"
                   >
                     <div className="flex items-center justify-between gap-4 mb-4">
                       <span className="font-mono text-xs text-cyan-400 uppercase tracking-wider font-semibold">{featured.categoryName}</span>
@@ -245,11 +245,11 @@ const Acervo: React.FC = () => {
                       </span>
                     </div>
 
-                    <h2 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-3">
+                    <h2 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-2xl sm:text-3xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-3">
                       {featured.title}
                     </h2>
 
-                    <p className="text-slate-300/80 text-xs sm:text-sm font-body leading-relaxed mb-6 max-w-2xl">
+                    <p className="text-slate-300/80 text-sm font-body leading-relaxed mb-6 max-w-3xl">
                       {featured.subtitle}
                     </p>
 
@@ -262,30 +262,33 @@ const Acervo: React.FC = () => {
                   </Link>
                 )}
 
-                <div className="grid grid-cols-1 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {listed.map((item, idx) => (
                     <Link
                       key={item.id}
                       href={`/conteudo/${item.slug}`}
-                      className="glossy-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group border border-white/10 hover:border-cyan-400/40"
+                      className="glossy-card p-6 flex flex-col justify-between space-y-6 group rounded-2xl border border-white/10 hover:border-cyan-400/50 transition-all"
                     >
-                      <div className="flex items-start sm:items-center gap-3">
-                        <span className="w-6 h-6 rounded bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center font-mono text-[10px] text-cyan-300 shrink-0">
-                          {String(idx + 1).padStart(2, '0')}
-                        </span>
-                        <div>
-                          <h3 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors">
-                            {item.title}
-                          </h3>
-                          <p className="text-xs text-slate-300/70 font-body line-clamp-1 mt-0.5">
-                            {item.subtitle}
-                          </p>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="w-6 h-6 rounded bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center font-mono text-[10px] text-cyan-300">
+                            {String(idx + 1).padStart(2, '0')}
+                          </span>
+                          <span className="text-purple-400 font-mono text-xs font-semibold">{item.categoryName}</span>
                         </div>
+
+                        <h3 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-2">
+                          {item.title}
+                        </h3>
+
+                        <p className="text-xs text-slate-300/80 font-body line-clamp-3 leading-relaxed">
+                          {item.subtitle}
+                        </p>
                       </div>
 
-                      <div className="flex items-center gap-3 text-xs font-mono text-white/40 shrink-0">
-                        <span className="text-purple-400 font-semibold">{item.categoryName}</span>
+                      <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/40">
                         <span>{item.readTime}</span>
+                        <span className="text-cyan-400 font-semibold group-hover:translate-x-1 transition-transform">Ler →</span>
                       </div>
                     </Link>
                   ))}
@@ -303,7 +306,7 @@ export default function DescobrirPage() {
   return (
     <Suspense
       fallback={
-        <div className="px-6 sm:px-8 pt-28 pb-24 max-w-6xl mx-auto">
+        <div className="px-6 sm:px-12 pt-28 pb-24 w-[88vw] max-w-[1650px] mx-auto text-white">
           <Cabecalho />
           <p className="py-20 font-mono text-xs text-cyan-400 animate-pulse text-center">
             Consultando acervo do portal...

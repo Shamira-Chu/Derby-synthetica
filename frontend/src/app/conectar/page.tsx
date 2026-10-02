@@ -43,15 +43,15 @@ export default function Conectar() {
   };
 
   return (
-    <div className="px-6 sm:px-8 pt-28 pb-24 max-w-6xl mx-auto space-y-12">
+    <div className="px-6 sm:px-12 pt-28 pb-24 w-[88vw] max-w-[1650px] mx-auto text-white space-y-12">
       <header className="mb-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-8 space-y-3">
-          <h1 className="text-[clamp(2rem,6vw,3.5rem)] tracking-wider leading-tight">
-            <span style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-white">
+          <h1 className="text-[clamp(2.5rem,5.8vw,4.5rem)] tracking-wider leading-tight">
+            <span style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-white uppercase">
               Conectar Ligas & Bouts
             </span>
           </h1>
-          <p className="text-slate-300/80 text-xs sm:text-sm font-body leading-relaxed max-w-xl">
+          <p className="text-slate-300 font-body text-sm sm:text-base leading-relaxed max-w-xl">
             O roller derby existe por apoio mútuo e autogestão. Encontre a liga da sua cidade,
             acompanhe os bouts e junte-se à bancada.
           </p>
@@ -59,15 +59,15 @@ export default function Conectar() {
 
         {/* Showcase Floating Image */}
         <div className="lg:col-span-4 flex justify-center lg:justify-end">
-          <div className="relative w-40 h-40 sm:w-52 sm:h-52 animate-[pulse_4s_ease-in-out_infinite]">
-            <div className="absolute inset-0 bg-pink-500/20 rounded-full blur-2xl pointer-events-none" />
+          <div className="relative w-44 h-44 sm:w-60 sm:h-60 animate-[pulse_4s_ease-in-out_infinite]">
+            <div className="absolute inset-0 bg-pink-500/20 rounded-full blur-3xl pointer-events-none" />
             <Image
               src="/imagens/patins.webp"
               alt="Patins Derby Synthetica"
-              width={220}
-              height={220}
+              width={280}
+              height={280}
               priority
-              className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_30px_rgba(255,46,151,0.4)]"
+              className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_35px_rgba(255,46,151,0.45)]"
             />
           </div>
         </div>
@@ -89,13 +89,13 @@ export default function Conectar() {
           ))}
         </div>
 
-        <div className="w-full lg:w-64 shrink-0">
+        <div className="w-full lg:w-72 shrink-0">
           <input
             type="text"
             placeholder="Buscar liga por nome ou cidade"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-3.5 py-2 rounded-lg bg-[#0D0F26] border border-white/15 focus:border-cyan-400 text-xs font-mono text-white placeholder:text-white/40 focus:outline-none transition-colors"
+            className="w-full px-4 py-2.5 rounded-xl bg-[#0D0F26] border border-white/15 focus:border-cyan-400 text-xs font-mono text-white placeholder:text-white/40 focus:outline-none transition-colors"
           />
         </div>
       </div>
@@ -144,7 +144,7 @@ export default function Conectar() {
                 </span>
               </div>
 
-              <h2 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-xl sm:text-2xl font-bold text-white">
+              <h2 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-xl sm:text-2xl font-bold text-white uppercase">
                 {selected.name}
               </h2>
 
@@ -186,15 +186,15 @@ export default function Conectar() {
           deck="Partidas abertas ao público, workshops de arbitragem e clínicas técnicas."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {events.map((evt) => (
-            <div key={evt.id} className="glossy-card p-5 border border-white/10 hover:border-cyan-400/40 space-y-3">
+            <div key={evt.id} className="glossy-card p-6 border border-white/10 hover:border-cyan-400/40 space-y-4 rounded-2xl">
               <div className="flex items-center justify-between gap-2 text-xs font-mono">
                 <span className="font-mono text-xs text-amber-400 font-semibold">{evt.date}</span>
                 <span className="text-cyan-300">{evt.isOpenToPublic ? 'Entrada Livre' : 'Inscritas'}</span>
               </div>
 
-              <h3 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-base font-bold text-white">
+              <h3 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-base font-bold text-white uppercase">
                 {evt.title}
               </h3>
 
@@ -209,7 +209,7 @@ export default function Conectar() {
       {/* Modal Contato */}
       {contactOpen && selected && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-          <div className="glossy-card p-6 sm:p-8 bg-[#0D0F26] border-2 border-cyan-400/50 w-full max-w-md space-y-6">
+          <div className="glossy-card p-6 sm:p-8 bg-[#0D0F26] border-2 border-cyan-400/50 w-full max-w-md space-y-6 rounded-2xl">
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <span className="font-mono text-xs text-cyan-300 font-semibold">{selected.city}</span>
               <button
@@ -249,17 +249,17 @@ export default function Conectar() {
               >
                 <div>
                   <label className="block text-white/60 mb-1">Nome Completo</label>
-                  <input required type="text" className="w-full p-2.5 rounded bg-black/50 border border-white/15 text-white" />
+                  <input required type="text" className="w-full p-2.5 rounded-xl bg-black/50 border border-white/15 text-white" />
                 </div>
 
                 <div>
                   <label className="block text-white/60 mb-1">E-mail ou WhatsApp</label>
-                  <input required type="text" className="w-full p-2.5 rounded bg-black/50 border border-white/15 text-white" />
+                  <input required type="text" className="w-full p-2.5 rounded-xl bg-black/50 border border-white/15 text-white" />
                 </div>
 
                 <div>
                   <label className="block text-white/60 mb-1">Interesse</label>
-                  <select className="w-full p-2.5 rounded bg-black/50 border border-white/15 text-white">
+                  <select className="w-full p-2.5 rounded-xl bg-black/50 border border-white/15 text-white">
                     <option value="fresh_meat">Fresh Meat — começar do zero</option>
                     <option value="transfer">Já patino — transferência</option>
                     <option value="referee">Arbitragem / NSO</option>

@@ -45,15 +45,15 @@ export default function Participar() {
   }, [cityFilter]);
 
   return (
-    <div className="px-6 sm:px-8 pt-28 pb-24 max-w-6xl mx-auto space-y-16">
+    <div className="px-6 sm:px-12 pt-28 pb-24 w-[88vw] max-w-[1650px] mx-auto text-white space-y-16">
       <header className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-8 space-y-3">
-          <h1 className="text-[clamp(2rem,6vw,3.5rem)] tracking-wider leading-tight">
-            <span style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-white">
+          <h1 className="text-[clamp(2.5rem,5.8vw,4.5rem)] tracking-wider leading-tight">
+            <span style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-white uppercase">
               Participar do Esporte
             </span>
           </h1>
-          <p className="text-slate-300/80 text-xs sm:text-sm font-body leading-relaxed max-w-xl">
+          <p className="text-slate-300 font-body text-sm sm:text-base leading-relaxed max-w-xl">
             Você não precisa saber patinar para começar. As ligas brasileiras ensinam desde o
             primeiro equilíbrio até o contato de jogo.
           </p>
@@ -61,15 +61,15 @@ export default function Participar() {
 
         {/* Showcase Floating Image */}
         <div className="lg:col-span-4 flex justify-center lg:justify-end">
-          <div className="relative w-40 h-40 sm:w-52 sm:h-52 animate-[pulse_4s_ease-in-out_infinite]">
-            <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-2xl pointer-events-none" />
+          <div className="relative w-44 h-44 sm:w-60 sm:h-60 animate-[pulse_4s_ease-in-out_infinite]">
+            <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
             <Image
               src="/imagens/apito.webp"
               alt="Apito Derby Synthetica"
-              width={220}
-              height={220}
+              width={280}
+              height={280}
               priority
-              className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_30px_rgba(255,184,0,0.4)]"
+              className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_35px_rgba(255,184,0,0.45)]"
             />
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function Participar() {
 
         <div className="space-y-3 mt-6">
           {journey.map((step) => (
-            <div key={step.num} className="glossy-card p-5 border border-white/10 hover:border-cyan-400/40 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div key={step.num} className="glossy-card p-5 border border-white/10 hover:border-cyan-400/40 flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl">
               <div className="flex items-center gap-3 sm:w-56 shrink-0">
                 <span className="w-7 h-7 rounded-md bg-cyan-950 border border-cyan-500/40 flex items-center justify-center font-mono text-xs text-cyan-300 font-bold">
                   {step.num}
@@ -113,7 +113,7 @@ export default function Participar() {
           }
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
           {gear.map((item) => {
             const isChecked = checked[item.id];
             return (
@@ -122,7 +122,7 @@ export default function Participar() {
                 type="button"
                 onClick={() => setChecked((prev) => ({ ...prev, [item.id]: !prev[item.id] }))}
                 aria-pressed={isChecked}
-                className={`p-4 rounded-xl border text-left cursor-pointer transition-all flex items-center gap-3 ${
+                className={`p-5 rounded-xl border text-left cursor-pointer transition-all flex items-center gap-4 ${
                   isChecked
                     ? 'bg-cyan-950/40 border-cyan-400/50 shadow-[0_0_15px_rgba(0,240,255,0.15)]'
                     : 'glossy-card border-white/10 opacity-70'
@@ -135,7 +135,7 @@ export default function Participar() {
                   <span style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className={`text-xs font-semibold uppercase block ${isChecked ? 'text-cyan-300' : 'text-white/60'}`}>
                     {item.title}
                   </span>
-                  <span className="text-xs font-body text-slate-300/70 mt-0.5 block">
+                  <span className="text-xs font-body text-slate-300/70 mt-0.5 block leading-relaxed">
                     {item.desc}
                   </span>
                 </div>
@@ -161,9 +161,9 @@ export default function Participar() {
           }
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {locations.map((loc) => (
-            <div key={loc.id} className="glossy-card p-6 space-y-4">
+            <div key={loc.id} className="glossy-card p-6 space-y-4 rounded-2xl border border-white/10 hover:border-cyan-400/40">
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-xs text-cyan-300 font-semibold">
                   {loc.city}, {loc.state}
@@ -175,7 +175,7 @@ export default function Participar() {
                 )}
               </div>
 
-              <h3 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-base font-bold text-white">{loc.name}</h3>
+              <h3 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-base font-bold text-white uppercase">{loc.name}</h3>
 
               <div className="border-t border-white/10 pt-3 space-y-2 text-xs font-mono">
                 <div className="flex justify-between py-1 border-b border-white/5">
@@ -198,8 +198,8 @@ export default function Participar() {
 
       {/* Call to Action */}
       <section className="pt-8">
-        <div className="glossy-card p-8 sm:p-12 text-center space-y-4 max-w-2xl mx-auto">
-          <h2 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-2xl sm:text-3xl font-bold text-white">
+        <div className="glossy-card p-8 sm:p-12 text-center space-y-4 max-w-3xl mx-auto rounded-3xl">
+          <h2 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-2xl sm:text-3xl font-bold text-white uppercase">
             Pronta para a primeira volta?
           </h2>
           <p className="text-xs sm:text-sm text-slate-300/80 font-body max-w-md mx-auto">

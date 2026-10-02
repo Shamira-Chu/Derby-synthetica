@@ -148,14 +148,14 @@ export default function EditorialPage() {
   };
 
   return (
-    <div className="px-6 sm:px-8 pt-32 pb-24">
-      <div className="max-w-6xl mx-auto">
+    <div className="px-6 sm:px-12 pt-32 pb-24 w-[88vw] max-w-[1650px] mx-auto text-white">
+      <div className="w-full">
         <header className="mb-12">
-          <h1 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-[clamp(2rem,7vw,3.5rem)] text-white font-bold">
+          <h1 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-[clamp(2.5rem,5.8vw,4.5rem)] text-white font-bold uppercase">
             Painel Editorial
           </h1>
 
-          <p className="mt-4 text-slate-300/80 text-[13px] sm:text-sm font-body leading-relaxed max-w-xl">
+          <p className="mt-4 text-slate-300 font-body text-sm sm:text-base leading-relaxed max-w-2xl">
             A mesa onde o acervo é escrito. Cadastro, edição e remoção de ensaio falam direto
             com a API do portal, e o que for gravado aqui aparece em Descobrir na mesma hora.
           </p>
