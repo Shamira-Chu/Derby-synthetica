@@ -22,7 +22,7 @@ A entrega são dois repositórios separados, e não um monorepo:
 
 | Parte | Repositório | Stack |
 |---|---|---|
-| Portal (este) | https://github.com/leonardohb7/syntheticafrontend | Next 15 (App Router), React 19, TypeScript, Tailwind 4 |
+| Portal (este) | https://github.com/Shamira-Chu/Derby-synthetica | Next 15 (App Router), React 19, TypeScript, Tailwind 4 |
 | API | https://github.com/leonardohb7/syntheticabackend | FastAPI, Pydantic, dados em memória |
 
 Publicados em:
