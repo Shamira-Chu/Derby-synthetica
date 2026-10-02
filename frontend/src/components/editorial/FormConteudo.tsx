@@ -368,10 +368,10 @@ export const FormConteudo: React.FC<FormConteudoProps> = ({
           >
             <textarea
               {...props('subtitle')}
-              rows={2}
+              rows={3}
               onChange={(e) => definir('subtitle', e.target.value)}
               placeholder="Uma linha que completa o título"
-              className="px-3.5 py-2.5"
+              className="px-4 py-3 min-h-[75px] text-sm leading-relaxed"
             />
           </Campo>
 
@@ -383,10 +383,10 @@ export const FormConteudo: React.FC<FormConteudoProps> = ({
           >
             <textarea
               {...props('summary')}
-              rows={4}
+              rows={5}
               onChange={(e) => definir('summary', e.target.value)}
               placeholder="O argumento do ensaio em poucas linhas"
-              className="px-3.5 py-2.5"
+              className="px-4 py-3 min-h-[110px] text-sm leading-relaxed"
             />
           </Campo>
 
@@ -445,7 +445,7 @@ export const FormConteudo: React.FC<FormConteudoProps> = ({
                   >
                     <textarea
                       id={`secao-${indice}-text`}
-                      rows={7}
+                      rows={10}
                       value={secao.text}
                       onChange={(e) => alterarSecao(indice, 'text', e.target.value)}
                       aria-invalid={visiveis[`secao-${indice}`] ? true : undefined}
@@ -453,7 +453,7 @@ export const FormConteudo: React.FC<FormConteudoProps> = ({
                         visiveis[`secao-${indice}`] ? `secao-${indice}-text-erro` : undefined
                       }
                       placeholder="O corpo desta parte do ensaio"
-                      className="px-3.5 py-2.5"
+                      className="px-4 py-3 min-h-[160px] text-sm leading-relaxed"
                     />
                   </Campo>
 
@@ -465,20 +465,22 @@ export const FormConteudo: React.FC<FormConteudoProps> = ({
                     >
                       <textarea
                         id={`secao-${indice}-quote`}
-                        rows={3}
+                        rows={4}
                         value={secao.quote ?? ''}
                         onChange={(e) => alterarSecao(indice, 'quote', e.target.value)}
-                        className="px-3.5 py-2.5"
+                        placeholder="Ex: 'O pack respira em dois segundos...'"
+                        className="px-4 py-3 min-h-[90px] text-xs leading-relaxed"
                       />
                     </Campo>
 
                     <Campo id={`secao-${indice}-callout`} rotulo="Destaque (opcional)">
                       <textarea
                         id={`secao-${indice}-callout`}
-                        rows={3}
+                        rows={4}
                         value={secao.callout ?? ''}
                         onChange={(e) => alterarSecao(indice, 'callout', e.target.value)}
-                        className="px-3.5 py-2.5"
+                        placeholder="Destaque conceitual ou aviso"
+                        className="px-4 py-3 min-h-[90px] text-xs leading-relaxed"
                       />
                     </Campo>
                   </div>

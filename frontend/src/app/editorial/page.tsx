@@ -150,7 +150,7 @@ export default function EditorialPage() {
   };
 
   return (
-    <div className="px-6 sm:px-12 pt-32 pb-24 w-[88vw] max-w-[1650px] mx-auto text-white">
+    <div className="px-3 sm:px-8 md:px-12 pt-28 sm:pt-32 pb-24 w-[94vw] sm:w-[90vw] max-w-[1650px] mx-auto text-white">
       <div className="w-full">
         <header className="mb-12">
           <h1 style={{ fontFamily: "'Audiowide', cursive, sans-serif" }} className="text-[clamp(2.5rem,5.8vw,4.5rem)] text-white font-bold uppercase">
