@@ -28,7 +28,8 @@ PROMPTS_CLAUDE_CODE.md
 .vercel/
 
 # Editores
-.vscode/
+.vscode/*
+!.vscode/settings.json
 .idea/
 *.swp
 *~
