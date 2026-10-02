@@ -10,6 +10,7 @@ import { Chip } from '@/components/common/Chip';
 import { EstadoDeErro } from '@/components/common/EstadoDeErro';
 import { SeletorTrilha, PainelTrilha, lerTrilha } from '@/components/common/SeletorTrilha';
 import { TransicaoDeFiltro } from '@/components/common/TransicaoDeFiltro';
+import { SkeletonAcervo } from '@/components/common/SkeletonLoaders';
 
 const Cabecalho: React.FC = () => (
   <header className="mb-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -202,9 +203,7 @@ const Acervo: React.FC = () => {
             posicao={posicaoNaFileira(categoriaExibida)}
           >
             {loading && contents.length === 0 ? (
-              <div className="py-20 text-center font-mono text-xs text-cyan-400 animate-pulse">
-                Carregando ensaios do acervo...
-              </div>
+              <SkeletonAcervo />
             ) : erro ? (
               <EstadoDeErro
                 className="py-16"

@@ -29,7 +29,7 @@ Publicados em:
 
 | Serviço | URL |
 |---|---|
-| Portal (Vercel) | https://frontend-three-fawn-51.vercel.app |
+| Portal (Vercel) | https://derby-synthetica.vercel.app |
 | API (Render) | https://syntheticabackend.onrender.com |
 | Documentação da API | https://syntheticabackend.onrender.com/docs |
 

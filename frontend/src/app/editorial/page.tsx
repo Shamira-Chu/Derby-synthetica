@@ -9,6 +9,8 @@ import { FiltroTrilha, FiltroDeTrilha } from '@/components/editorial/FiltroTrilh
 import { ListaConteudos } from '@/components/editorial/ListaConteudos';
 import { FormConteudo, ErroDeEnvio } from '@/components/editorial/FormConteudo';
 import { ModalConfirmacao } from '@/components/editorial/ModalConfirmacao';
+import { Toast } from '@/components/common/Toast';
+import { SkeletonRow } from '@/components/common/SkeletonLoaders';
 
 type Operacao = 'criando' | 'salvando' | 'excluindo' | null;
 
@@ -204,9 +206,12 @@ export default function EditorialPage() {
             </div>
 
             {carregando && conteudos.length === 0 ? (
-              <p className="py-20 font-mono text-[11px] uppercase tracking-[0.24em] text-cyan-400 animate-pulse">
-                Consultando acervo...
-              </p>
+              <div className="space-y-4 py-8">
+                <SkeletonRow />
+                <SkeletonRow />
+                <SkeletonRow />
+                <SkeletonRow />
+              </div>
             ) : erroDeCarga ? (
               <EstadoDeErro className="py-16" mensagem={erroDeCarga} onTentarDeNovo={recarregar} />
             ) : (
@@ -245,6 +250,15 @@ export default function EditorialPage() {
           </>
         }
       />
+
+      {/* Toast Notification Flutuante */}
+      {aviso && (
+        <Toast
+          mensagem={aviso.texto}
+          tom={aviso.tom}
+          onFechar={() => setAviso(null)}
+        />
+      )}
     </div>
   );
 }
