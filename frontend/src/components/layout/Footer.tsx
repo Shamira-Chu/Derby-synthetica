@@ -66,10 +66,10 @@ export const Footer: React.FC = () => (
       </div>
 
       {/* ===================================================
-          2. 100% WIDTH PHRASE WITH CLAMP (NO CLIPPING)
+          2. 100% WIDTH PHRASE WITH RESPONSIVE TYPOGRAPHY
           =================================================== */}
-      <div className="w-full px-4 sm:px-8 text-center overflow-hidden select-none py-6">
-        <h2 className="text-[clamp(1.6rem,5vw,6.2rem)] font-display font-extrabold uppercase text-white tracking-tight leading-none whitespace-nowrap block w-full">
+      <div className="w-full px-4 sm:px-8 text-center select-none py-6">
+        <h2 className="text-[clamp(1.1rem,4.4vw,5.5rem)] font-display font-extrabold uppercase text-white tracking-wider sm:tracking-tight leading-snug sm:leading-none block w-full">
           Skate hard and turn left
         </h2>
       </div>
