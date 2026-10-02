@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'INÍCIO', path: '/' },
@@ -68,11 +67,19 @@ export const Header: React.FC = () => {
           <button
             type="button"
             onClick={() => setMenuAberto(!menuAberto)}
-            className="p-2 rounded-lg bg-slate-900/80 border border-slate-700/60 text-slate-200 hover:text-pink-400 hover:border-pink-500/50 active:scale-95 transition-all"
+            className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-900/80 border border-slate-700/60 text-slate-200 hover:text-pink-400 hover:border-pink-500/50 active:scale-95 transition-all text-lg font-mono"
             aria-label={menuAberto ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
             aria-expanded={menuAberto}
           >
-            {menuAberto ? <X className="w-5 h-5 text-pink-400" /> : <Menu className="w-5 h-5" />}
+            {menuAberto ? (
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>

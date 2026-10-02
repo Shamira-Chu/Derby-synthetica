@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { CheckCircle2, AlertCircle, X } from 'lucide-react';
 
 export interface ToastProps {
   mensagem: string;
@@ -38,9 +37,13 @@ export const Toast: React.FC<ToastProps> = ({
       >
         <div className="shrink-0 mt-0.5">
           {isOk ? (
-            <CheckCircle2 className="w-5 h-5 text-cyan-400" />
+            <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           ) : (
-            <AlertCircle className="w-5 h-5 text-pink-500" />
+            <svg className="w-5 h-5 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           )}
         </div>
 
@@ -59,7 +62,9 @@ export const Toast: React.FC<ToastProps> = ({
           className="shrink-0 p-1 text-slate-400 hover:text-white transition-colors"
           aria-label="Fechar notificação"
         >
-          <X className="w-4 h-4" />
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       </div>
     </div>
