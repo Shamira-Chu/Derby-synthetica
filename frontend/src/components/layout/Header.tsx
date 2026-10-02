@@ -54,12 +54,14 @@ export const Header: React.FC = () => {
 
         {/* Desktop CTA Button */}
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/participar"
+          <a
+            href="https://3-d-synthetic.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:from-fuchsia-400 hover:to-pink-400 text-white font-mono text-[11px] uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(217,70,239,0.45)] hover:shadow-[0_0_28px_rgba(217,70,239,0.65)] transition-all whitespace-nowrap"
           >
             ENTRE NA PISTA
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -109,13 +111,15 @@ export const Header: React.FC = () => {
           </nav>
 
           <div className="pt-2 border-t border-slate-800/80">
-            <Link
-              href="/participar"
+            <a
+              href="https://3-d-synthetic.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMenuAberto(false)}
               className="w-full flex items-center justify-center py-3 rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white font-mono text-xs uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(217,70,239,0.4)] active:scale-95 transition-all"
             >
               ENTRE NA PISTA
-            </Link>
+            </a>
           </div>
         </div>
       )}
