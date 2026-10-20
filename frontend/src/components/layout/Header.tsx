@@ -41,11 +41,10 @@ export const Header: React.FC = () => {
             <Link
               key={item.path}
               href={item.path}
-              className={`transition-colors py-1 ${
-                isActive(item.path)
+              className={`transition-colors py-1 ${isActive(item.path)
                   ? 'text-cyan-400 font-bold border-b border-cyan-400'
                   : 'text-slate-300 hover:text-white'
-              }`}
+                }`}
             >
               {item.label}
             </Link>
@@ -55,7 +54,7 @@ export const Header: React.FC = () => {
         {/* Desktop CTA Button */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://3-d-synthetic.vercel.app/"
+            href="https://roller-derby-competition-arena.ai.studio/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:from-fuchsia-400 hover:to-pink-400 text-white font-mono text-[11px] uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(217,70,239,0.45)] hover:shadow-[0_0_28px_rgba(217,70,239,0.65)] transition-all whitespace-nowrap"
@@ -97,11 +96,10 @@ export const Header: React.FC = () => {
                   key={item.path}
                   href={item.path}
                   onClick={() => setMenuAberto(false)}
-                  className={`px-4 py-3 rounded-lg transition-all flex items-center justify-between ${
-                    active
+                  className={`px-4 py-3 rounded-lg transition-all flex items-center justify-between ${active
                       ? 'bg-pink-500/15 text-pink-300 font-bold border border-pink-500/30'
                       : 'text-slate-300 hover:bg-slate-900/60 hover:text-white'
-                  }`}
+                    }`}
                 >
                   <span>{item.label}</span>
                   {active && <span className="w-1.5 h-1.5 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(255,46,151,1)]" />}
@@ -112,7 +110,7 @@ export const Header: React.FC = () => {
 
           <div className="pt-2 border-t border-slate-800/80">
             <a
-              href="https://3-d-synthetic.vercel.app/"
+              href="https://roller-derby-competition-arena.ai.studio/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuAberto(false)}

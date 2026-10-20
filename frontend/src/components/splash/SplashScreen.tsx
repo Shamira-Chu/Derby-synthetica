@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import lottie from 'lottie-web';
+import vinhetaAnimation from '../../../../1920x1080.json';
 
 interface SplashScreenProps {
   onComplete?: () => void;
@@ -16,6 +17,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
 }) => {
   const [isExiting, setIsExiting] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const animationContainerRef = useRef<HTMLDivElement | null>(null);
 
   const handleDone = () => {
     setIsExiting(true);
@@ -34,41 +36,40 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
     return () => clearTimeout(timer);
   }, [duration]);
 
+  useEffect(() => {
+    if (!animationContainerRef.current) return;
+
+    const animation = lottie.loadAnimation({
+      container: animationContainerRef.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      animationData: vinhetaAnimation,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+        clearCanvas: true,
+        progressiveLoad: true,
+      },
+    });
+
+    return () => {
+      animation.destroy();
+    };
+  }, []);
+
   if (!isVisible) return null;
 
   return (
     <div
       onClick={handleDone}
-      className={`fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center cursor-pointer select-none transition-all duration-700 ease-in-out ${
-        isExiting ? 'opacity-0 scale-102 pointer-events-none blur-sm' : 'opacity-100 scale-100'
-      }`}
+      className={`fixed inset-0 z-[9999] bg-[#050611] overflow-hidden cursor-pointer select-none transition-all duration-700 ease-in-out ${isExiting ? 'opacity-0 scale-[1.02] pointer-events-none blur-sm' : 'opacity-100 scale-100'}`}
     >
-      <div className="flex flex-col items-center text-center space-y-6 max-w-2xl px-6">
-        {/* Derby Synthetic Star Logo Icon */}
-        <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center animate-[pulse_3s_ease-in-out_infinite]">
-          <Image
-            src="/derby-synthetic.svg"
-            alt="Derby Synthetica"
-            width={128}
-            height={128}
-            priority
-            className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(212,181,255,0.75)]"
-          />
-        </div>
-
-        {/* Title in Audiowide Font */}
-        <h1
-          style={{ fontFamily: "'Audiowide', cursive, sans-serif" }}
-          className="font-audiowide text-2xl sm:text-4xl md:text-5xl font-normal text-white uppercase tracking-[0.2em] leading-none pt-2"
-        >
-          DERBY SYNTHETICA
-        </h1>
-
-        {/* Subtitle in Magenta */}
-        <p className="font-mono text-xs sm:text-sm text-[#FF2E97] tracking-[0.3em] uppercase font-medium">
-          TEMPORADA 47 – FLAT TRACK
-        </p>
-      </div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,46,151,0.18),_transparent_45%),linear-gradient(180deg,_#0a0d18_0%,_#050611_100%)]" />
+      <div
+        ref={animationContainerRef}
+        className="absolute inset-0 z-10 w-screen h-screen overflow-hidden"
+        style={{ transform: 'scale(1.08)' }}
+      />
     </div>
   );
 };
