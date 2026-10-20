@@ -136,7 +136,7 @@ export const NetworkMap: React.FC<NetworkMapProps> = ({
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
           <span className="text-cyan-300 font-bold tracking-widest uppercase">
-            REDE NACIONAL INTERATIVA (GOOGLE MAPS API)
+            REDE NACIONAL INTERATIVA
           </span>
         </div>
         <span className="text-slate-400">{teams.length} POLOS CONECTADOS</span>
@@ -150,9 +150,7 @@ export const NetworkMap: React.FC<NetworkMapProps> = ({
             defaultZoom={5}
             mapId="DEMO_MAP_ID"
             styles={DARK_CYBERPUNK_MAP_STYLE}
-            internalUsageAttributionIds={["gmp_mcp_codeassist_v1_aistudio"]}
-            disableDefaultUI={false}
-            zoomControl={true}
+            disableDefaultUI={true}
             className="w-full h-full"
           >
             <MapLines teams={teams} />

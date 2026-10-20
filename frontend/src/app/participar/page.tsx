@@ -25,7 +25,7 @@ const gear = [
   { id: 'mouthguard', title: 'Protetor bucal', desc: 'Obrigatório em qualquer treino com contato.' },
 ];
 
-const cities = ['all', 'São Paulo', 'Rio de Janeiro', 'Curitiba', 'Porto Alegre', 'Brasília'];
+const cities = ['all', 'São Paulo', 'Rio de Janeiro', 'Curitiba', 'Santos'];
 
 export default function Participar() {
   const [locations, setLocations] = useState<LocationVenue[]>([]);
@@ -122,11 +122,10 @@ export default function Participar() {
                 type="button"
                 onClick={() => setChecked((prev) => ({ ...prev, [item.id]: !prev[item.id] }))}
                 aria-pressed={isChecked}
-                className={`p-5 rounded-xl border text-left cursor-pointer transition-all flex items-center gap-4 ${
-                  isChecked
+                className={`p-5 rounded-xl border text-left cursor-pointer transition-all flex items-center gap-4 ${isChecked
                     ? 'bg-cyan-950/40 border-cyan-400/50 shadow-[0_0_15px_rgba(0,240,255,0.15)]'
                     : 'glossy-card border-white/10 opacity-70'
-                }`}
+                  }`}
               >
                 <span className={`w-5 h-5 rounded flex items-center justify-center font-mono text-xs font-bold shrink-0 ${isChecked ? 'bg-cyan-400 text-black' : 'border border-white/20 text-white/30'}`}>
                   {isChecked ? '✓' : ''}

@@ -9,7 +9,7 @@ import { NetworkMap } from '@/components/connect/NetworkMap';
 import { SectionHead } from '@/components/common/SectionHead';
 import { Chip } from '@/components/common/Chip';
 
-const cities = ['all', 'São Paulo', 'Rio de Janeiro', 'Curitiba', 'Porto Alegre', 'Brasília', 'Belo Horizonte'];
+const cities = ['all', 'São Paulo', 'Rio de Janeiro', 'Curitiba', 'Santos'];
 
 export default function Conectar() {
   const [teams, setTeams] = useState<Team[]>([]);
@@ -110,11 +110,10 @@ export default function Conectar() {
                 key={team.id}
                 type="button"
                 onClick={() => setSelectedTeamId(team.id)}
-                className={`w-full p-4 text-left rounded-xl border transition-all flex items-center justify-between gap-3 ${
-                  isSelected
+                className={`w-full p-4 text-left rounded-xl border transition-all flex items-center justify-between gap-3 ${isSelected
                     ? 'bg-cyan-950/40 border-cyan-400/60 shadow-[0_0_15px_rgba(0,240,255,0.2)]'
                     : 'glossy-card border-white/10 hover:border-white/20'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-3">
                   <span className={`w-2 h-2 rounded-full ${isSelected ? 'bg-cyan-400 animate-ping' : 'bg-white/20'}`} />
