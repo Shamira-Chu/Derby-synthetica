@@ -42,8 +42,8 @@ export const Header: React.FC = () => {
               key={item.path}
               href={item.path}
               className={`transition-colors py-1 ${isActive(item.path)
-                  ? 'text-cyan-400 font-bold border-b border-cyan-400'
-                  : 'text-slate-300 hover:text-white'
+                ? 'text-cyan-400 font-bold border-b border-cyan-400'
+                : 'text-slate-300 hover:text-white'
                 }`}
             >
               {item.label}
@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
             href="https://roller-derby-competition-arena.ai.studio/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:from-fuchsia-400 hover:to-pink-400 text-white font-mono text-[11px] uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(217,70,239,0.45)] hover:shadow-[0_0_28px_rgba(217,70,239,0.65)] transition-all whitespace-nowrap"
+            className="px-5 py-2.5 rounded-xl bg-linear-to-r from-fuchsia-500 to-pink-500 hover:from-fuchsia-400 hover:to-pink-400 text-white font-mono text-[11px] uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(217,70,239,0.45)] hover:shadow-[0_0_28px_rgba(217,70,239,0.65)] transition-all whitespace-nowrap"
           >
             ENTRE NA PISTA
           </a>
@@ -97,8 +97,8 @@ export const Header: React.FC = () => {
                   href={item.path}
                   onClick={() => setMenuAberto(false)}
                   className={`px-4 py-3 rounded-lg transition-all flex items-center justify-between ${active
-                      ? 'bg-pink-500/15 text-pink-300 font-bold border border-pink-500/30'
-                      : 'text-slate-300 hover:bg-slate-900/60 hover:text-white'
+                    ? 'bg-pink-500/15 text-pink-300 font-bold border border-pink-500/30'
+                    : 'text-slate-300 hover:bg-slate-900/60 hover:text-white'
                     }`}
                 >
                   <span>{item.label}</span>
@@ -114,7 +114,7 @@ export const Header: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuAberto(false)}
-              className="w-full flex items-center justify-center py-3 rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white font-mono text-xs uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(217,70,239,0.4)] active:scale-95 transition-all"
+              className="w-full flex items-center justify-center py-3 rounded-xl bg-linear-to-r from-fuchsia-500 to-pink-500 text-white font-mono text-xs uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(217,70,239,0.4)] active:scale-95 transition-all"
             >
               ENTRE NA PISTA
             </a>

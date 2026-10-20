@@ -5,13 +5,19 @@ import Link from 'next/link';
 
 export const CinematicHero: React.FC = () => {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-between p-6 sm:p-10 lg:p-12 overflow-hidden bg-[#070914] rounded-3xl border border-white/15 my-4 shadow-[0_20px_80px_rgba(0,0,0,0.9)]">
+    <section
+      className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-between p-6 sm:p-10 lg:p-12 overflow-hidden rounded-3xl border border-white/15 my-4 shadow-[0_20px_80px_rgba(0,0,0,0.9)]"
+      style={{ backgroundColor: '#070914' }}
+    >
       {/* 1. Curved Metallic Arena & Neon Strip Lighting Background Layers */}
       <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
         {/* Overhead Curved LED Banner Glow */}
         <div
-          className="absolute -top-20 -left-20 w-[120%] h-[350px] opacity-35 blur-[70px] -rotate-6"
+          className="absolute -top-20 -left-20 w-[120%] opacity-35 -rotate-6"
           style={{
+            width: '120%',
+            height: '350px',
+            filter: 'blur(70px)',
             background:
               'linear-gradient(90deg, #FF2E97 0%, #A855F7 40%, #00F0FF 80%, transparent 100%)',
           }}
@@ -106,10 +112,20 @@ export const CinematicHero: React.FC = () => {
           <div className="space-y-2">
             <h1 className="text-[clamp(2.2rem,6.5vw,4.5rem)] font-display font-extrabold tracking-tight leading-[0.98] uppercase text-white">
               <span className="block">Performance</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
+              <span
+                className="block text-transparent bg-clip-text"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #fff 0%, #e2e8f0 50%, #94a3b8 100%)',
+                }}
+              >
                 Sintética.
               </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">
+              <span
+                className="block text-transparent bg-clip-text"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #22d3ee 0%, #a78bfa 50%, #ec4899 100%)',
+                }}
+              >
                 Velocidade Incomparável.
               </span>
             </h1>

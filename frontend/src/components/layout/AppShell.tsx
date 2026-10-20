@@ -17,7 +17,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
     <>
       {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
 
-      <div className="min-h-screen bg-[#050611] text-ink relative overflow-x-hidden">
+      <div className="min-h-screen text-ink relative overflow-x-hidden" style={{ backgroundColor: '#050611' }}>
         <Backdrop />
 
         <Header />
@@ -25,7 +25,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
         <main className="relative z-10">{children}</main>
 
         <Footer />
-      </div>
+      </div >
     </>
   );
 };

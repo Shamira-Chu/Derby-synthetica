@@ -28,7 +28,7 @@ export const SyntheticaButton: React.FC<SyntheticaButtonProps> = ({
     <div className={`relative inline-flex items-center group cursor-pointer select-none ${className}`}>
       {/* Outer Organic Peanut Frame Enclosure */}
       <div className="relative flex items-center p-1.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-md transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.15)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.3)]">
-        
+
         {/* Inner Left Pill Capsule */}
         <div className="px-6 py-3 rounded-full bg-[#111328]/90 group-hover:bg-[#181a38] text-white font-mono text-xs uppercase font-bold tracking-[0.2em] transition-colors whitespace-nowrap flex items-center justify-center">
           {children}
@@ -36,7 +36,10 @@ export const SyntheticaButton: React.FC<SyntheticaButtonProps> = ({
 
         {/* Concave Bridge Divider / Pinch */}
         <div className="w-2.5 h-6 relative flex items-center justify-center -mx-1 z-10 pointer-events-none">
-          <div className="w-full h-full opacity-30 bg-gradient-to-r from-white/20 to-transparent rounded-full" />
+          <div
+            className="w-full h-full opacity-30 rounded-full"
+            style={{ background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%)' }}
+          />
         </div>
 
         {/* Inner Right Circle Badge */}

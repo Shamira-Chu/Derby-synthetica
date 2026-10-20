@@ -124,9 +124,15 @@ export const NetworkMap: React.FC<NetworkMapProps> = ({
   }, [selectedTeamId]);
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden border border-cyan-500/30 bg-[#050611] shadow-[0_0_30px_rgba(0,240,255,0.15)]">
+    <div
+      className="relative w-full rounded-2xl overflow-hidden border border-cyan-500/30 shadow-[0_0_30px_rgba(0,240,255,0.15)]"
+      style={{ backgroundColor: '#050611' }}
+    >
       {/* Header bar */}
-      <div className="px-6 py-3 bg-[#0a0c20]/90 backdrop-blur-md border-b border-white/10 flex items-center justify-between text-xs font-mono">
+      <div
+        className="px-6 py-3 backdrop-blur-md border-b border-white/10 flex items-center justify-between text-xs font-mono"
+        style={{ backgroundColor: 'rgba(10, 12, 32, 0.9)' }}
+      >
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
           <span className="text-cyan-300 font-bold tracking-widest uppercase">
@@ -137,7 +143,7 @@ export const NetworkMap: React.FC<NetworkMapProps> = ({
       </div>
 
       {/* Google Map Container */}
-      <div className="relative w-full h-[380px] sm:h-[460px]">
+      <div className="relative w-full" style={{ height: '380px' }}>
         <APIProvider apiKey={apiKey}>
           <Map
             defaultCenter={{ lat: -22.5, lng: -47.0 }}
@@ -166,26 +172,30 @@ export const NetworkMap: React.FC<NetworkMapProps> = ({
                     title={team.name}
                   >
                     <div
-                      className={`relative flex items-center justify-center cursor-pointer group transition-transform duration-300 ${
-                        isSelected ? 'scale-125 z-30' : 'hover:scale-110 z-10'
-                      }`}
+                      className={`relative flex items-center justify-center cursor-pointer group transition-transform duration-300 ${isSelected ? 'scale-125 z-30' : 'hover:scale-110 z-10'
+                        }`}
                     >
                       {/* Pulsing ring */}
                       <span
-                        className={`absolute w-8 h-8 rounded-full transition-all ${
-                          isSelected
-                            ? 'bg-pink-500/40 animate-ping'
-                            : 'bg-cyan-500/20 group-hover:animate-ping'
-                        }`}
+                        className={`absolute w-8 h-8 rounded-full transition-all ${isSelected
+                          ? 'bg-pink-500/40 animate-ping'
+                          : 'bg-cyan-500/20 group-hover:animate-ping'
+                          }`}
                       />
 
                       {/* Custom Cyberpunk Pin */}
                       <div
-                        className={`w-6 h-6 rounded-full border-2 flex items-center justify-center font-mono text-[10px] font-bold shadow-lg transition-all ${
+                        className={`w-6 h-6 rounded-full border-2 flex items-center justify-center font-mono text-[10px] font-bold shadow-lg transition-all ${isSelected
+                          ? 'border-white text-white shadow-[0_0_20px_rgba(255,46,151,0.9)]'
+                          : 'border-cyan-400 text-cyan-300 group-hover:border-pink-400 group-hover:text-white'
+                          }`}
+                        style={
                           isSelected
-                            ? 'bg-gradient-to-r from-pink-500 to-purple-600 border-white text-white shadow-[0_0_20px_rgba(255,46,151,0.9)]'
-                            : 'bg-[#0a0c20] border-cyan-400 text-cyan-300 group-hover:border-pink-400 group-hover:text-white'
-                        }`}
+                            ? {
+                              background: 'linear-gradient(90deg, #ec4899 0%, #9333ea 100%)',
+                            }
+                            : { backgroundColor: '#0a0c20' }
+                        }
                       >
                         {team.state}
                       </div>

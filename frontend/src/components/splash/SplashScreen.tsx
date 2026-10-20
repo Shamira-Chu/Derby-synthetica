@@ -47,7 +47,6 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
       animationData: vinhetaAnimation,
       rendererSettings: {
         preserveAspectRatio: 'xMidYMid slice',
-        clearCanvas: true,
         progressiveLoad: true,
       },
     });
@@ -62,9 +61,16 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
   return (
     <div
       onClick={handleDone}
-      className={`fixed inset-0 z-[9999] bg-[#050611] overflow-hidden cursor-pointer select-none transition-all duration-700 ease-in-out ${isExiting ? 'opacity-0 scale-[1.02] pointer-events-none blur-sm' : 'opacity-100 scale-100'}`}
+      className={`fixed inset-0 overflow-hidden cursor-pointer select-none transition-all duration-700 ease-in-out ${isExiting ? 'opacity-0 scale-[1.02] pointer-events-none blur-sm' : 'opacity-100 scale-100'}`}
+      style={{ zIndex: 9999, backgroundColor: '#020817' }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,46,151,0.18),_transparent_45%),linear-gradient(180deg,_#0a0d18_0%,_#050611_100%)]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(circle at center, rgba(255,46,151,0.18), transparent 45%), linear-gradient(180deg, #0a0d18 0%, #050611 100%)',
+        }}
+      />
       <div
         ref={animationContainerRef}
         className="absolute inset-0 z-10 w-screen h-screen overflow-hidden"

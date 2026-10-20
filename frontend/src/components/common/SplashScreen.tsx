@@ -38,9 +38,9 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
           if (onFinish) onFinish();
         }, 600);
       }}
-      className={`fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center cursor-pointer select-none transition-all duration-700 ease-in-out ${
-        isExiting ? 'opacity-0 scale-102 pointer-events-none blur-sm' : 'opacity-100 scale-100'
-      }`}
+      className={`fixed inset-0 flex flex-col items-center justify-center cursor-pointer select-none transition-all duration-700 ease-in-out ${isExiting ? 'opacity-0 scale-102 pointer-events-none blur-sm' : 'opacity-100 scale-100'
+        }`}
+      style={{ zIndex: 9999, backgroundColor: '#000000' }}
     >
       <div className="flex flex-col items-center text-center space-y-6 max-w-2xl px-6">
         {/* Derby Synthetic Star Logo */}

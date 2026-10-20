@@ -347,7 +347,10 @@ export const Arena3DCanvas: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-[480px] sm:h-[580px] lg:h-[650px] rounded-3xl overflow-hidden border border-white/20 shadow-[0_12px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,240,255,0.15)] bg-[#050611]">
+    <div
+      className="relative w-full rounded-3xl overflow-hidden border border-white/20 shadow-[0_12px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,240,255,0.15)]"
+      style={{ backgroundColor: '#050611', height: 'min(65vw, 650px)' }}
+    >
       <div ref={mountRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
 
       {/* Top Banner Ticker Ribbon (Identical to Game Banner) */}
@@ -374,44 +377,40 @@ export const Arena3DCanvas: React.FC = () => {
         <button
           type="button"
           onClick={() => changeView('firstPerson')}
-          className={`px-3 py-1 rounded-full transition-all ${
-            currentView === 'firstPerson'
+          className={`px-3 py-1 rounded-full transition-all ${currentView === 'firstPerson'
               ? 'bg-cyan-400 text-black font-semibold shadow-[0_0_10px_rgba(0,240,255,0.8)]'
               : 'text-white/80 hover:text-white hover:bg-white/10'
-          }`}
+            }`}
         >
           1ª Pessoa
         </button>
         <button
           type="button"
           onClick={() => changeView('drone')}
-          className={`px-3 py-1 rounded-full transition-all ${
-            currentView === 'drone'
+          className={`px-3 py-1 rounded-full transition-all ${currentView === 'drone'
               ? 'bg-cyan-400 text-black font-semibold shadow-[0_0_10px_rgba(0,240,255,0.8)]'
               : 'text-white/80 hover:text-white hover:bg-white/10'
-          }`}
+            }`}
         >
           Drone
         </button>
         <button
           type="button"
           onClick={() => changeView('overview')}
-          className={`px-3 py-1 rounded-full transition-all ${
-            currentView === 'overview'
+          className={`px-3 py-1 rounded-full transition-all ${currentView === 'overview'
               ? 'bg-cyan-400 text-black font-semibold shadow-[0_0_10px_rgba(0,240,255,0.8)]'
               : 'text-white/80 hover:text-white hover:bg-white/10'
-          }`}
+            }`}
         >
           Pontos de Vista
         </button>
         <button
           type="button"
           onClick={() => changeView('dome')}
-          className={`px-3 py-1 rounded-full transition-all ${
-            currentView === 'dome'
+          className={`px-3 py-1 rounded-full transition-all ${currentView === 'dome'
               ? 'bg-cyan-400 text-black font-semibold shadow-[0_0_10px_rgba(0,240,255,0.8)]'
               : 'text-white/80 hover:text-white hover:bg-white/10'
-          }`}
+            }`}
         >
           Domo 360°
         </button>
