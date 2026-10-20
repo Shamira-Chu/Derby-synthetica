@@ -15,7 +15,13 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
 
   return (
     <>
-      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+      {showSplash && (
+        <SplashScreen
+          onComplete={() => {
+            setShowSplash(false);
+          }}
+        />
+      )}
 
       <div className="min-h-screen text-ink relative overflow-x-hidden" style={{ backgroundColor: '#050611' }}>
         <Backdrop />

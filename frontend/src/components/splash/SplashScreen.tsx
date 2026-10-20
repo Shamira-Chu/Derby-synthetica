@@ -20,8 +20,10 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
   const animationContainerRef = useRef<HTMLDivElement | null>(null);
 
   const handleDone = () => {
+    if (isExiting) return;
+
     setIsExiting(true);
-    setTimeout(() => {
+    window.setTimeout(() => {
       setIsVisible(false);
       if (onComplete) onComplete();
       if (onFinish) onFinish();
@@ -29,12 +31,12 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer = window.setTimeout(() => {
       handleDone();
     }, duration);
 
-    return () => clearTimeout(timer);
-  }, [duration]);
+    return () => window.clearTimeout(timer);
+  }, [duration, isExiting]);
 
   useEffect(() => {
     if (!animationContainerRef.current) return;

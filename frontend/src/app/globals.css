@@ -1,5 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Audiowide';
+  src: url('/fonts/audiowide/Audiowide-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* =========================================================================
    DERBY SYNTHETICA — SÍNTESE "GLOSSY WANNATHIS x ARENA 2047"
@@ -15,14 +22,14 @@
   --color-gold: #FFB800;
   --color-mint: #10B981;
 
-  --font-audiowide: 'Audiowide', cursive, sans-serif;
-  --font-display: 'Audiowide', var(--font-audiowide), var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-share-tech-mono), ui-monospace, monospace;
-  --font-body: var(--font-rajdhani), ui-sans-serif, system-ui, sans-serif;
+  --font-audiowide: 'Audiowide', 'Segoe UI', sans-serif;
+  --font-display: 'Audiowide', 'Segoe UI', sans-serif;
+  --font-mono: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+  --font-body: 'Segoe UI', 'Tahoma', sans-serif;
 }
 
 .font-audiowide {
-  font-family: 'Audiowide', cursive, sans-serif !important;
+  font-family: 'Audiowide', 'Segoe UI', sans-serif !important;
 }
 
 @layer base {
@@ -41,16 +48,20 @@
     text-rendering: optimizeLegibility;
   }
 
-  h1, h2 {
-    font-family: 'Audiowide', var(--font-audiowide), var(--font-display);
-    font-weight: 400;
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
     line-height: 1.05;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #FFFFFF;
   }
 
-  h3, h4, h5, h6 {
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-mono);
     font-weight: 500;
     line-height: 1.25;
@@ -63,10 +74,23 @@
     color: #FFFFFF;
   }
 
-  ::-webkit-scrollbar { width: 8px; height: 8px; }
-  ::-webkit-scrollbar-track { background: #050611; }
-  ::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.3); border-radius: 4px; }
-  ::-webkit-scrollbar-thumb:hover { background: #00F0FF; }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050611;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 240, 255, 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00F0FF;
+  }
 
   :focus-visible {
     outline: 2px solid #00F0FF;
@@ -79,24 +103,51 @@
    ========================================================================= */
 
 @keyframes glossyShimmer {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes bubbleFloat {
-  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-  50% { transform: translateY(-12px) rotate(4deg) scale(1.02); }
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(4deg) scale(1.02);
+  }
 }
 
 @keyframes dichroicPulse {
-  0%, 100% { filter: drop-shadow(0 0 12px rgba(0,240,255,0.4)) drop-shadow(0 0 24px rgba(255,46,151,0.2)); }
-  50% { filter: drop-shadow(0 0 20px rgba(168,85,247,0.6)) drop-shadow(0 0 32px rgba(0,240,255,0.5)); }
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.4)) drop-shadow(0 0 24px rgba(255, 46, 151, 0.2));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.6)) drop-shadow(0 0 32px rgba(0, 240, 255, 0.5));
+  }
 }
 
 @keyframes tickerSlide {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @layer components {
@@ -104,12 +155,10 @@
   /* Glossy Glass Card com Borda Dicróica e Brilho Especular */
   .glossy-card {
     position: relative;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.02) 50%,
-      rgba(15, 18, 45, 0.6) 100%
-    );
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.02) 50%,
+        rgba(15, 18, 45, 0.6) 100%);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 1.25rem;
@@ -126,25 +175,21 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0, 240, 255, 0.7) 25%,
-      rgba(255, 46, 151, 0.7) 50%,
-      rgba(168, 85, 247, 0.7) 75%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0, 240, 255, 0.7) 25%,
+        rgba(255, 46, 151, 0.7) 50%,
+        rgba(168, 85, 247, 0.7) 75%,
+        transparent 100%);
     border-radius: 1.25rem 1.25rem 0 0;
     opacity: 0.7;
   }
 
   .glossy-card:hover {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0.04) 50%,
-      rgba(22, 27, 62, 0.75) 100%
-    );
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.04) 50%,
+        rgba(22, 27, 62, 0.75) 100%);
     border-color: rgba(0, 240, 255, 0.45);
     box-shadow:
       inset 0 1px 2px rgba(255, 255, 255, 0.5),
@@ -209,10 +254,8 @@
   }
 
   .sw-scan {
-    background: linear-gradient(
-      rgba(0, 240, 255, 0) 50%,
-      rgba(0, 0, 0, 0.2) 50%
-    );
+    background: linear-gradient(rgba(0, 240, 255, 0) 50%,
+        rgba(0, 0, 0, 0.2) 50%);
     background-size: 100% 4px;
   }
 
